@@ -1,4 +1,11 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body{
+    overflow: hidden;
     color: #333;
     margin: 0;
 }
@@ -10,13 +17,19 @@ a{
     min-height: 100vh;
     background: linear-gradient(135deg,white, rgb(114, 233, 233));
     padding: 10px;
+    position: relative;
 }
 
 #card {
-    width: 350px;
-    height: 515px;
-    margin: 100px auto 0;
+    width: 90%;
+    padding: 20px 0;
+    max-width: 350px;
+    height: auto;
+    min-height: 580px;
+    margin: 4rem auto;
     background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,.1);
+    border-radius: 15px;
 }
 
 #cardInner {
@@ -26,11 +39,11 @@ a{
 }
 
 #front, #back {
+    min-width: 250px;
     width: 100%;
     height: 100%;
     border-radius: 15px;
     position: absolute;
-    backface-visibility: hidden;
 }
 #front {
     background-image: url(picture.png);
@@ -39,14 +52,19 @@ a{
 }
 
 #back {
-    background-color: white;
-    padding: 20px 40px;
-    transform: tran(180deg);
+    padding: 20px;
+    @media (min-width: 480px) {
+        padding: 20px 40px;
+    }
 }
 
 #back h2 {
-    font-size: 40px;
-    line-height: 45px;
+    font-size: 1.5rem;
+    line-height: 1.2rem;
+    @media (min-width:480px) {
+        font-size: 2.5rem;
+        line-height: 3rem;
+    }
     margin-bottom: 10px;
 }
 
@@ -56,15 +74,18 @@ a{
 
 #back p {
     font-size: 14px;
+    margin: 5px 0;
 }
 
 #profilePicture {
-    display: flex;
-    justify-content: flex-start;
-    width: 150px;
-    height: 150px;
-    margin: 30px 10px 0;
-    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin: 20px auto;
+    @media (min-width: 480px) {
+        width: 150px;
+        height: 150px;
+    }
+    border-radius: 20px;
     background-image: url(profilePicture.jpg);
     background-position: center;
     background-size: cover;
@@ -72,8 +93,12 @@ a{
 
 #socials{
     display: flex;
-    justify-content: space-between;
-    margin: 35px auto 20px;
+    flex-direction: column;
+    gap: 10px;
+    margin: 2rem auto;
+    @media (min-width: 480px) {
+        flex-direction: row;
+    }
 }
 
 #socials a {
